@@ -5,15 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Namaste-React</title>
+    <link rel="stylesheet" href="./index.css" />
   </head>
+
   <body>
-    <div id="root"></div>
+    <div id="root">Not Rendered</div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
     <script>
-      const headingOne = document.createElement("h1");
-      headingOne.innerHTML = "This is Heading";
-      headingOne.style.color = "darkgreen";
-      const root = document.getElementById("root");
-      root.appendChild(headingOne);
+      const heading_h1 = React.createElement(
+        "h1",
+        { id: "heading-h1" },
+        "This is Heading H1"
+      );
+      const heading_h2 = React.createElement(
+        "h2",
+        { id: "heading-h2" },
+        "This is Heading H2"
+      );
+      const containerMain = React.createElement(
+        "div",
+        { id: "container", className: "container-main" },
+        [heading_h1,heading_h2]
+      );
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(containerMain);
     </script>
   </body>
 </html>
